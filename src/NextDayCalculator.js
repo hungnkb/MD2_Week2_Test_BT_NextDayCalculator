@@ -4,22 +4,14 @@ exports.NextDayCalculator = void 0;
 var NextDayCalculator = /** @class */ (function () {
     function NextDayCalculator() {
     }
-    // day: number;
-    // month: number;
-    // year: number;
-    // constructor(day: number, month: number, year: number) {
-    //     this.day = day
-    //     this.month = month;
-    //     this.year = year;
-    // }
-    NextDayCalculator.prototype.isLeapYear = function (year) {
+    NextDayCalculator.isLeapYear = function (year) {
         var leapYear = year % 4 == 0;
         if (leapYear)
             return true;
         else
             return false;
     };
-    NextDayCalculator.prototype.isLastDayOfMonth = function (day, month) {
+    NextDayCalculator.isLastDayOfMonth = function (day, month) {
         var lastDayOfNotLeapYearFeb = 28;
         var lastDayOfLeapYearFeb = 29;
         var lastDayOf31DaysMonth = 31;
@@ -71,28 +63,28 @@ var NextDayCalculator = /** @class */ (function () {
                 }
         }
     };
-    NextDayCalculator.prototype.isLastMonthOfYear = function (month) {
+    NextDayCalculator.isLastMonthOfYear = function (month) {
         if (month == 12)
             return true;
         else
             return false;
     };
-    NextDayCalculator.prototype.nextDayCalculate = function (day, month, year) {
+    NextDayCalculator.nextDayCalculate = function (day, month, year) {
         var nextDayFirstOfMonth = 1;
         var nextDay = day + 1;
         var nextMonthFirstOfYear = 1;
         var nextMonth = month + 1;
         var nextYear = year + 1;
-        if (this.isLastDayOfMonth(day, month)) {
-            if (this.isLastMonthOfYear(month)) {
-                return 'Next day = ' + nextDayFirstOfMonth + '-' + nextMonthFirstOfYear + '-' + nextYear;
+        if (NextDayCalculator.isLastDayOfMonth(day, month)) {
+            if (NextDayCalculator.isLastMonthOfYear(month)) {
+                return [nextDayFirstOfMonth, nextMonthFirstOfYear, nextYear,];
             }
             else {
-                return 'Next day = ' + nextDayFirstOfMonth + '-' + nextMonth + '-' + year;
+                return [nextDayFirstOfMonth, nextMonth, year];
             }
         }
         else {
-            return 'Next day = ' + nextDay + '-' + month + '-' + year;
+            return [nextDay, month, year];
         }
     };
     return NextDayCalculator;

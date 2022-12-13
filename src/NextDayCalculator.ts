@@ -1,14 +1,4 @@
 export class NextDayCalculator {
-    // day: number;
-    // month: number;
-    // year: number;
-
-    // constructor(day: number, month: number, year: number) {
-    //     this.day = day
-    //     this.month = month;
-    //     this.year = year;
-    // }
-
     static isLeapYear(year: number): boolean {
         let leapYear = year % 4 == 0;
         if (leapYear) return true
@@ -78,14 +68,14 @@ export class NextDayCalculator {
         let nextYear = year + 1;
         if (NextDayCalculator.isLastDayOfMonth(day, month)) {
             if (NextDayCalculator.isLastMonthOfYear(month)) {
-                return 'Next day = ' + nextDayFirstOfMonth + '-' + nextMonthFirstOfYear + '-' + nextYear;
+                return [nextDayFirstOfMonth, nextMonthFirstOfYear, nextYear,];
             }
             else {
-                return 'Next day = ' + nextDayFirstOfMonth + '-' + nextMonth + '-' + year
+                return [nextDayFirstOfMonth, nextMonth, year];
             }
         }
         else {
-            return 'Next day = ' + nextDay + '-' + month + '-' + year;
+            return [nextDay, month, year];
         }
     }
 }
