@@ -1,0 +1,27 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "lib": [
+            "es6"
+        ],
+        "outDir": "./build",
+        "resolveJsonModule": true,
+        "strict": true,
+        "types": [
+            
+        ],
+        "esModuleInterop": true,
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true
+    },
+    "exclude": [
+        "node_modules",
+        "**/*.spec.ts",
+        "**/*.test.ts"
+    ],
+    "include": [
+        "./src/**/*"
+    ]
+}
