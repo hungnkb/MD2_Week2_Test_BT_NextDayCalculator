@@ -7,15 +7,17 @@
         "outDir": "./build",
         "resolveJsonModule": true,
         "strict": true,
-        "types": [
-            
-        ],
+   
         "esModuleInterop": true,
         "module": "commonjs",
         "moduleResolution": "node",
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true
     },
+    "types": [
+        "reflect-metadata",
+        "jest"
+    ],
     "exclude": [
         "node_modules",
         "**/*.spec.ts",

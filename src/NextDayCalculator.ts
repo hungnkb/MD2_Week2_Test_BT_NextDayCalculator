@@ -5,7 +5,7 @@ export class NextDayCalculator {
         else return false;
     }
 
-    static isLastDayOfMonth(day: number, month: number) {
+    static isLastDayOfMonth(day: number, month: number, year: number) {
         let lastDayOfNotLeapYearFeb = 28;
         let lastDayOfLeapYearFeb = 29;
         let lastDayOf31DaysMonth = 31;
@@ -42,7 +42,9 @@ export class NextDayCalculator {
                     return true
                 else return false
             case Feb:
-                if (this.isLeapYear(day)) {
+                if (this.isLeapYear(year)) {
+                    console.log(day);
+                    
                     if (day == lastDayOfLeapYearFeb)
                         return true
                     else return false
@@ -66,7 +68,7 @@ export class NextDayCalculator {
         let nextMonthFirstOfYear = 1;
         let nextMonth = month + 1;
         let nextYear = year + 1;
-        if (NextDayCalculator.isLastDayOfMonth(day, month)) {
+        if (NextDayCalculator.isLastDayOfMonth(day, month,year)) {
             if (NextDayCalculator.isLastMonthOfYear(month)) {
                 return [nextDayFirstOfMonth, nextMonthFirstOfYear, nextYear,];
             }

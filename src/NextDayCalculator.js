@@ -11,7 +11,7 @@ var NextDayCalculator = /** @class */ (function () {
         else
             return false;
     };
-    NextDayCalculator.isLastDayOfMonth = function (day, month) {
+    NextDayCalculator.isLastDayOfMonth = function (day, month, year) {
         var lastDayOfNotLeapYearFeb = 28;
         var lastDayOfLeapYearFeb = 29;
         var lastDayOf31DaysMonth = 31;
@@ -49,17 +49,18 @@ var NextDayCalculator = /** @class */ (function () {
                 else
                     return false;
             case Feb:
-                if (this.isLeapYear(day)) {
+                if (this.isLeapYear(year)) {
+                    console.log(day);
                     if (day == lastDayOfLeapYearFeb)
-                        return true;
+                        return 123;
                     else
-                        return false;
+                        return 234;
                 }
                 else {
                     if (day == lastDayOfNotLeapYearFeb)
-                        return true;
+                        return 456;
                     else
-                        return false;
+                        return 789;
                 }
         }
     };
@@ -75,7 +76,7 @@ var NextDayCalculator = /** @class */ (function () {
         var nextMonthFirstOfYear = 1;
         var nextMonth = month + 1;
         var nextYear = year + 1;
-        if (NextDayCalculator.isLastDayOfMonth(day, month)) {
+        if (NextDayCalculator.isLastDayOfMonth(day, month, year)) {
             if (NextDayCalculator.isLastMonthOfYear(month)) {
                 return [nextDayFirstOfMonth, nextMonthFirstOfYear, nextYear,];
             }
